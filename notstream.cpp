@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 
     ftime(&end);
     time_diff_ms = 1000 * (end.time - start.time) + (end.millitm - start.millitm);
-    bw = iterations * (float)(element_count * sizeof(int64_t) * 3 )/ time_diff_ms;
+    bw = iterations * (float)(element_count * sizeof(int64_t) * 3 )/ ((float)time_diff_ms * 1000);
     printf("BW: %f GB/s, in %lld ms\n", bw / 1024, time_diff_ms);
 
     for (i = 0; i < element_count; i++)
